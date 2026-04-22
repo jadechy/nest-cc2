@@ -7,8 +7,7 @@ export class SignInDto {
     example: 'test@example.com',
   })
   @IsEmail()
-  @IsNotEmpty()
-  email: string;
+  email!: string;
 
   @ApiProperty({
     description: 'The password of the user',
@@ -16,13 +15,5 @@ export class SignInDto {
   })
   @IsString()
   @IsNotEmpty()
-  password: string;
-
-  @ApiProperty({
-    description: 'The username of the user',
-    example: 'username',
-  })
-  @IsString()
-  @IsNotEmpty()
-  username: string;
+  password!: string;
 }

@@ -1,13 +1,18 @@
 {
   "private": true,
+  "pnpm": {
+    "overrides": {
+      "zod": "^4"
+    }
+  },
   "version": "0.1.0",
   "type": "module",
   "scripts": {
     "dev:web": "pnpm --filter web dev",
-    "dev:api": "pnpm --filter api dev",
+    "dev:api": "pnpm --filter api start:dev",
     "db:view": "pnpm --filter api studio",
     "db:seed": "pnpm --filter api seed",
-    "dev": "pnpm dev:web & pnpm dev:api & pnpm db:view"
+    "dev": "pnpm dev:web & pnpm dev:api"
   },
   "workspaces": [
     "apps/*",

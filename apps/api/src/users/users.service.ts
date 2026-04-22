@@ -1,8 +1,10 @@
 import { Injectable } from '@nestjs/common';
 
-import { PrismaService } from 'src/prisma/prisma.service';
+import { PrismaService } from '../prisma/prisma.service';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
+
+import { User } from '../generated/prisma/client';
 
 @Injectable()
 export class UsersService {
@@ -55,6 +57,35 @@ export class UsersService {
   remove(id: string) {
     return this.prisma.user.delete({
       where: {id: id}
+    });
+  }
+
+  saveOtp(
+    email: User['email'],
+    otpCode: User['otpCode'],
+    expiredAt: User['otpExpiredAt'],
+  ) {
+    return this.prisma.user.update({
+      where: { email },
+      data: { otpCode, otpExpiredAt: expiredAt },
+    });
+  }
+  deleteOtp(id: User['id']) {
+    return this.prisma.user.update({
+      where: { id },
+      data: { otpCode: null, otpExpiredAt: null },
+    });
+  }
+  findOtp(otpCode: User['otpCode']) {
+    return this.prisma.user.findFirst({
+      where: { otpCode },
+    });
+  }
+
+  verifyEmail({ email }: Pick<User, 'email'>) {
+    return this.prisma.user.update({
+      where: { email },
+      data: { isVerifiedEmail: true },
     });
   }
 }

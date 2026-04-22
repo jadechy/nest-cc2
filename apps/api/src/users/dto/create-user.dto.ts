@@ -7,7 +7,7 @@ export class CreateUserDto {
     example: 'test@example.com',
   })
   @IsEmail()
-  email: string;
+  email!: string;
 
   @ApiProperty({ description: 'The password of the user', example: 'password' })
   @IsString()
@@ -19,19 +19,19 @@ export class CreateUserDto {
         'Password must contain at least 8 characters, one uppercase letter, one lowercase letter, one number and one special character',
     },
   )
-  password: string;
+  password!: string;
 
   @ApiProperty({
     description: 'The username of the user',
     example: 'username',
   })
   @IsEmail()
-  username: string;
+  username!: string;
 
   @ApiProperty({
     description: 'The color of the user',
     example: '#000000',
   })
   @IsEmail()
-  color: string;
+  color!: string;
 }
