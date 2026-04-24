@@ -25,13 +25,13 @@ export class CreateUserDto {
     description: 'The username of the user',
     example: 'username',
   })
-  @IsEmail()
+  @IsString()
   username!: string;
 
   @ApiProperty({
     description: 'The color of the user',
     example: '#000000',
   })
-  @IsEmail()
+  @IsString()
   color!: string;
 }

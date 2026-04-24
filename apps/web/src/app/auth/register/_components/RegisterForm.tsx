@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 
-import { apiPatch, apiDelete, apiPost } from "@/lib/api.client";
+import { apiPost } from "@/lib/api.client";
 import { MailIcon, SaveIcon, TrashIcon } from "lucide-react";
 
 import { Button } from "@/components/ui/button";

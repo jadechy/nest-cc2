@@ -28,6 +28,7 @@ export type RoomMinAggregateOutputType = {
   id: string | null
   name: string | null
   isGeneral: boolean | null
+  isDirect: boolean | null
   createdAt: Date | null
   updatedAt: Date | null
   createdById: string | null
@@ -37,6 +38,7 @@ export type RoomMaxAggregateOutputType = {
   id: string | null
   name: string | null
   isGeneral: boolean | null
+  isDirect: boolean | null
   createdAt: Date | null
   updatedAt: Date | null
   createdById: string | null
@@ -46,6 +48,7 @@ export type RoomCountAggregateOutputType = {
   id: number
   name: number
   isGeneral: number
+  isDirect: number
   createdAt: number
   updatedAt: number
   createdById: number
@@ -57,6 +60,7 @@ export type RoomMinAggregateInputType = {
   id?: true
   name?: true
   isGeneral?: true
+  isDirect?: true
   createdAt?: true
   updatedAt?: true
   createdById?: true
@@ -66,6 +70,7 @@ export type RoomMaxAggregateInputType = {
   id?: true
   name?: true
   isGeneral?: true
+  isDirect?: true
   createdAt?: true
   updatedAt?: true
   createdById?: true
@@ -75,6 +80,7 @@ export type RoomCountAggregateInputType = {
   id?: true
   name?: true
   isGeneral?: true
+  isDirect?: true
   createdAt?: true
   updatedAt?: true
   createdById?: true
@@ -157,6 +163,7 @@ export type RoomGroupByOutputType = {
   id: string
   name: string
   isGeneral: boolean
+  isDirect: boolean
   createdAt: Date
   updatedAt: Date | null
   createdById: string
@@ -187,6 +194,7 @@ export type RoomWhereInput = {
   id?: Prisma.StringFilter<"Room"> | string
   name?: Prisma.StringFilter<"Room"> | string
   isGeneral?: Prisma.BoolFilter<"Room"> | boolean
+  isDirect?: Prisma.BoolFilter<"Room"> | boolean
   createdAt?: Prisma.DateTimeFilter<"Room"> | Date | string
   updatedAt?: Prisma.DateTimeNullableFilter<"Room"> | Date | string | null
   createdById?: Prisma.StringFilter<"Room"> | string
@@ -199,6 +207,7 @@ export type RoomOrderByWithRelationInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
   isGeneral?: Prisma.SortOrder
+  isDirect?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrderInput | Prisma.SortOrder
   createdById?: Prisma.SortOrder
@@ -214,6 +223,7 @@ export type RoomWhereUniqueInput = Prisma.AtLeast<{
   NOT?: Prisma.RoomWhereInput | Prisma.RoomWhereInput[]
   name?: Prisma.StringFilter<"Room"> | string
   isGeneral?: Prisma.BoolFilter<"Room"> | boolean
+  isDirect?: Prisma.BoolFilter<"Room"> | boolean
   createdAt?: Prisma.DateTimeFilter<"Room"> | Date | string
   updatedAt?: Prisma.DateTimeNullableFilter<"Room"> | Date | string | null
   createdById?: Prisma.StringFilter<"Room"> | string
@@ -226,6 +236,7 @@ export type RoomOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
   isGeneral?: Prisma.SortOrder
+  isDirect?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrderInput | Prisma.SortOrder
   createdById?: Prisma.SortOrder
@@ -241,6 +252,7 @@ export type RoomScalarWhereWithAggregatesInput = {
   id?: Prisma.StringWithAggregatesFilter<"Room"> | string
   name?: Prisma.StringWithAggregatesFilter<"Room"> | string
   isGeneral?: Prisma.BoolWithAggregatesFilter<"Room"> | boolean
+  isDirect?: Prisma.BoolWithAggregatesFilter<"Room"> | boolean
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"Room"> | Date | string
   updatedAt?: Prisma.DateTimeNullableWithAggregatesFilter<"Room"> | Date | string | null
   createdById?: Prisma.StringWithAggregatesFilter<"Room"> | string
@@ -250,6 +262,7 @@ export type RoomCreateInput = {
   id?: string
   name: string
   isGeneral?: boolean
+  isDirect?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string | null
   createdBy: Prisma.UserCreateNestedOneWithoutCreatedRoomsInput
@@ -261,6 +274,7 @@ export type RoomUncheckedCreateInput = {
   id?: string
   name: string
   isGeneral?: boolean
+  isDirect?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string | null
   createdById: string
@@ -272,6 +286,7 @@ export type RoomUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
   isGeneral?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isDirect?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdBy?: Prisma.UserUpdateOneRequiredWithoutCreatedRoomsNestedInput
@@ -283,6 +298,7 @@ export type RoomUncheckedUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
   isGeneral?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isDirect?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdById?: Prisma.StringFieldUpdateOperationsInput | string
@@ -294,6 +310,7 @@ export type RoomCreateManyInput = {
   id?: string
   name: string
   isGeneral?: boolean
+  isDirect?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string | null
   createdById: string
@@ -303,6 +320,7 @@ export type RoomUpdateManyMutationInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
   isGeneral?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isDirect?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
 }
@@ -311,6 +329,7 @@ export type RoomUncheckedUpdateManyInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
   isGeneral?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isDirect?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdById?: Prisma.StringFieldUpdateOperationsInput | string
@@ -330,6 +349,7 @@ export type RoomCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
   isGeneral?: Prisma.SortOrder
+  isDirect?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   createdById?: Prisma.SortOrder
@@ -339,6 +359,7 @@ export type RoomMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
   isGeneral?: Prisma.SortOrder
+  isDirect?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   createdById?: Prisma.SortOrder
@@ -348,6 +369,7 @@ export type RoomMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
   isGeneral?: Prisma.SortOrder
+  isDirect?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   createdById?: Prisma.SortOrder
@@ -436,6 +458,7 @@ export type RoomCreateWithoutCreatedByInput = {
   id?: string
   name: string
   isGeneral?: boolean
+  isDirect?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string | null
   members?: Prisma.RoomMemberCreateNestedManyWithoutRoomInput
@@ -446,6 +469,7 @@ export type RoomUncheckedCreateWithoutCreatedByInput = {
   id?: string
   name: string
   isGeneral?: boolean
+  isDirect?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string | null
   members?: Prisma.RoomMemberUncheckedCreateNestedManyWithoutRoomInput
@@ -485,6 +509,7 @@ export type RoomScalarWhereInput = {
   id?: Prisma.StringFilter<"Room"> | string
   name?: Prisma.StringFilter<"Room"> | string
   isGeneral?: Prisma.BoolFilter<"Room"> | boolean
+  isDirect?: Prisma.BoolFilter<"Room"> | boolean
   createdAt?: Prisma.DateTimeFilter<"Room"> | Date | string
   updatedAt?: Prisma.DateTimeNullableFilter<"Room"> | Date | string | null
   createdById?: Prisma.StringFilter<"Room"> | string
@@ -494,6 +519,7 @@ export type RoomCreateWithoutMembersInput = {
   id?: string
   name: string
   isGeneral?: boolean
+  isDirect?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string | null
   createdBy: Prisma.UserCreateNestedOneWithoutCreatedRoomsInput
@@ -504,6 +530,7 @@ export type RoomUncheckedCreateWithoutMembersInput = {
   id?: string
   name: string
   isGeneral?: boolean
+  isDirect?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string | null
   createdById: string
@@ -530,6 +557,7 @@ export type RoomUpdateWithoutMembersInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
   isGeneral?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isDirect?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdBy?: Prisma.UserUpdateOneRequiredWithoutCreatedRoomsNestedInput
@@ -540,6 +568,7 @@ export type RoomUncheckedUpdateWithoutMembersInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
   isGeneral?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isDirect?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdById?: Prisma.StringFieldUpdateOperationsInput | string
@@ -550,6 +579,7 @@ export type RoomCreateWithoutMessagesInput = {
   id?: string
   name: string
   isGeneral?: boolean
+  isDirect?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string | null
   createdBy: Prisma.UserCreateNestedOneWithoutCreatedRoomsInput
@@ -560,6 +590,7 @@ export type RoomUncheckedCreateWithoutMessagesInput = {
   id?: string
   name: string
   isGeneral?: boolean
+  isDirect?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string | null
   createdById: string
@@ -586,6 +617,7 @@ export type RoomUpdateWithoutMessagesInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
   isGeneral?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isDirect?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdBy?: Prisma.UserUpdateOneRequiredWithoutCreatedRoomsNestedInput
@@ -596,6 +628,7 @@ export type RoomUncheckedUpdateWithoutMessagesInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
   isGeneral?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isDirect?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdById?: Prisma.StringFieldUpdateOperationsInput | string
@@ -606,6 +639,7 @@ export type RoomCreateManyCreatedByInput = {
   id?: string
   name: string
   isGeneral?: boolean
+  isDirect?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string | null
 }
@@ -614,6 +648,7 @@ export type RoomUpdateWithoutCreatedByInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
   isGeneral?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isDirect?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   members?: Prisma.RoomMemberUpdateManyWithoutRoomNestedInput
@@ -624,6 +659,7 @@ export type RoomUncheckedUpdateWithoutCreatedByInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
   isGeneral?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isDirect?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   members?: Prisma.RoomMemberUncheckedUpdateManyWithoutRoomNestedInput
@@ -634,6 +670,7 @@ export type RoomUncheckedUpdateManyWithoutCreatedByInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
   isGeneral?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isDirect?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
 }
@@ -682,6 +719,7 @@ export type RoomSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = r
   id?: boolean
   name?: boolean
   isGeneral?: boolean
+  isDirect?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   createdById?: boolean
@@ -695,6 +733,7 @@ export type RoomSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensio
   id?: boolean
   name?: boolean
   isGeneral?: boolean
+  isDirect?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   createdById?: boolean
@@ -705,6 +744,7 @@ export type RoomSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensio
   id?: boolean
   name?: boolean
   isGeneral?: boolean
+  isDirect?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   createdById?: boolean
@@ -715,12 +755,13 @@ export type RoomSelectScalar = {
   id?: boolean
   name?: boolean
   isGeneral?: boolean
+  isDirect?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   createdById?: boolean
 }
 
-export type RoomOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "isGeneral" | "createdAt" | "updatedAt" | "createdById", ExtArgs["result"]["room"]>
+export type RoomOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "isGeneral" | "isDirect" | "createdAt" | "updatedAt" | "createdById", ExtArgs["result"]["room"]>
 export type RoomInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   createdBy?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   members?: boolean | Prisma.Room$membersArgs<ExtArgs>
@@ -745,6 +786,7 @@ export type $RoomPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs =
     id: string
     name: string
     isGeneral: boolean
+    isDirect: boolean
     createdAt: Date
     updatedAt: Date | null
     createdById: string
@@ -1177,6 +1219,7 @@ export interface RoomFieldRefs {
   readonly id: Prisma.FieldRef<"Room", 'String'>
   readonly name: Prisma.FieldRef<"Room", 'String'>
   readonly isGeneral: Prisma.FieldRef<"Room", 'Boolean'>
+  readonly isDirect: Prisma.FieldRef<"Room", 'Boolean'>
   readonly createdAt: Prisma.FieldRef<"Room", 'DateTime'>
   readonly updatedAt: Prisma.FieldRef<"Room", 'DateTime'>
   readonly createdById: Prisma.FieldRef<"Room", 'String'>

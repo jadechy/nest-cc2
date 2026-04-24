@@ -3,7 +3,7 @@ const BASE = process.env.NEXT_PUBLIC_API_BASE_URL;
 function headers(token?: string) {
   return {
     "Content-Type": "application/json",
-    Authorization: `Bearer ${token}`,
+    ...(token ? { Authorization: `Bearer ${token}` } : {}),
   };
 }
 

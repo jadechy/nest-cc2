@@ -4,14 +4,14 @@ declare module "next-auth" {
   interface Session {
     accessToken: string;
     user: {
-      id: number;
+      id: string;
       email: string;
       username?: string;
     };
   }
 
   interface User {
-    id: number;
+    id: string;
     accessToken: string;
     refreshToken: string;
   }
@@ -21,6 +21,6 @@ declare module "next-auth/jwt" {
   interface JWT {
     accessToken: string;
     refreshToken: string;
-    id: number;
+    id: string;
   }
 }

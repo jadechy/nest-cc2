@@ -51,7 +51,7 @@ export const HeaderComponent = () => {
   return (
     <header className="flex justify-between bg-gray-50/20 p-5 backdrop-blur-xl sticky top-0 z-20">
       <h1 className="font-bold">
-        <Link href="/">Message</Link>
+        <Link href="/">Messagerie</Link>
       </h1>
       <nav className={`${navClassName} flex`}>
         {session ? (

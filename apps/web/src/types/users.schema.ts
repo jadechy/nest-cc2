@@ -1,6 +1,6 @@
 import z from "zod";
 
-export const userIdSchema = z.number().nonnegative().brand("user");
+export const userIdSchema = z.string().uuid().brand("user");
 export const userSchema = z.object({
   id: userIdSchema,
   username: z.string().min(1, "Le nom est requis"),

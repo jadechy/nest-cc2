@@ -16,6 +16,16 @@ export class UsersService {
     });
   }
 
+  search(q: string) {
+    return this.prisma.user.findMany({
+      where: {
+        username: {contains: q, mode: 'insensitive'}
+      },
+      select: {id: true, username: true, color: true},
+      take: 10
+    })
+  }
+
   findAll() {
     return this.prisma.user.findMany({
       select: {
@@ -32,6 +42,7 @@ export class UsersService {
   findOne(id: string) {
     return this.prisma.user.findUnique({
       where: { id },
+      select: { id: true, username: true, color: true, email: true }
     });
   }
 
@@ -51,6 +62,7 @@ export class UsersService {
     return this.prisma.user.update({
       where: { id: id },
       data: updateUserDto,
+      select: { id: true, username: true, color: true, email: true }
     });
   }
 
@@ -70,12 +82,14 @@ export class UsersService {
       data: { otpCode, otpExpiredAt: expiredAt },
     });
   }
+
   deleteOtp(id: User['id']) {
     return this.prisma.user.update({
       where: { id },
       data: { otpCode: null, otpExpiredAt: null },
     });
   }
+
   findOtp(otpCode: User['otpCode']) {
     return this.prisma.user.findFirst({
       where: { otpCode },

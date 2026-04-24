@@ -31,7 +31,7 @@ export default function VerifyPage() {
             setError("Identifiants incorrects. Veuillez réessayer.");
             return;
         }
-        router.push("/user");
+        router.push("/rooms");
     };
 
     return (

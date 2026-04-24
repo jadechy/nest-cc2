@@ -837,6 +837,7 @@ export const RoomScalarFieldEnum = {
   id: 'id',
   name: 'name',
   isGeneral: 'isGeneral',
+  isDirect: 'isDirect',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt',
   createdById: 'createdById'

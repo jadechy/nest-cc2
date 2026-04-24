@@ -33,11 +33,12 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <Providers>
-          <HeaderComponent />
-          <main className="p-5 w-full">{children}</main>
-          <footer className="border-t px-6 py-4 text-center text-xs text-muted-foreground">
-            TP Nest — NestJS + Next.js
-          </footer>
+          <div className="flex flex-col h-screen overflow-hidden">
+            <HeaderComponent />
+            <main className="flex-1 overflow-hidden p-5 w-full">
+              {children}
+            </main>
+          </div>
         </Providers>
       </body>
     </html>

@@ -39,7 +39,7 @@ export const authOptions: NextAuthOptions = {
             if (user) {
                 token.accessToken = user.accessToken;
                 token.refreshToken = user.refreshToken;
-                token.id = Number(user.id);
+                token.id = user.id;
             }
             return token;
         },
@@ -49,7 +49,7 @@ export const authOptions: NextAuthOptions = {
                 accessToken: token.accessToken,
                 user: {
                 ...session.user,
-                id: token.id,
+                id: token.id as string,
                 },
             };
         },
