@@ -10,11 +10,13 @@ import { JwtPayload } from './types/jwt';
 import { VerifyOtpDto } from './dto/verify-otp.dto';
 import { RegisterDto } from './dto/register.dto';
 import { SignInDto } from './dto/sign-in.dto';
+import { RoomsService } from '../rooms/rooms.service';
 
 @Injectable()
 export class AuthService {
   constructor(
     private usersService: UsersService,
+    private roomsService: RoomsService,
     private jwtService: JwtService,
     private mailerService: MailService,
   ) {}
@@ -71,12 +73,14 @@ export class AuthService {
     const user = await this.usersService.findOneByEmail(email);
     if (user) throw new UnauthorizedException();
 
-    await this.usersService.create({
-      email,
-      password: await bcrypt.hash(password, 10),
-      username,
-      color: "#000000"
+    const newUser = await this.usersService.create({
+        email,
+        password: await bcrypt.hash(password, 10),
+        username,
+        color: "#000000"
     });
+
+    await this.roomsService.createGeneralRoom(newUser.id);
 
     const payload = { email };
     const token = await this.jwtService.signAsync(payload);

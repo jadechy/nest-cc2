@@ -7,10 +7,12 @@ import { jwtConstants } from './constants';
 
 import { MailModule } from '../mail/mail.module';
 import { UsersModule } from '../users/users.module';
+import { RoomsModule } from '../rooms/rooms.module';
 
 @Module({
   imports: [
     UsersModule,
+    RoomsModule,
     JwtModule.register({
       global: true,
       secret: jwtConstants.secret,

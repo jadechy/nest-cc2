@@ -32,6 +32,12 @@ export class RoomsService {
                 name: 'Général',
                 createdById: createdById,
                 isGeneral: true,
+                members: {
+                    create: {
+                        userId: createdById,
+                        hasHistoryAccess: true,
+                    },
+                },
             },
         });
     }

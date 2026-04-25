@@ -4,9 +4,10 @@ import { AppService } from './app.service';
 import { PrismaModule } from './prisma/prisma.module';
 import { UsersModule } from './users/users.module';
 import { AuthModule } from './auth/auth.module';
-import { JwtService } from '@nestjs/jwt';
 import { ConfigModule } from '@nestjs/config';
 import { MailModule } from './mail/mail.module';
+import { RoomsModule } from './rooms/rooms.module';
+import { MessageModule } from './messages/messages.module';
 
 @Module({
   imports: [
@@ -14,7 +15,9 @@ import { MailModule } from './mail/mail.module';
     PrismaModule,
     UsersModule,
     AuthModule,
-    MailModule
+    MailModule,
+    RoomsModule,
+    MessageModule
   ],
   controllers: [AppController],
   providers: [AppService],
