@@ -22,7 +22,8 @@ Application de messagerie en temps réel — monorepo pnpm avec une API NestJS e
 
 ```bash
 # Cloner le repo
-
+git clone git@github.com:jadechy/nest-cc2.git
+cd cc2
 
 # Installer les dépendances
 pnpm install
