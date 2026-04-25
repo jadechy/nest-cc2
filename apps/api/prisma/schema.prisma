@@ -15,8 +15,74 @@ datasource db {
 }
 
 model User {
-  id    Int     @id @default(autoincrement())
+  id    String    @id @default(uuid())
   email String  @unique
   password String
-  name  String?
+  username String @unique
+  color String
+
+  isVerifiedEmail Boolean   @default(false)
+  otpCode         String?
+  otpExpiredAt    DateTime?
+  
+  createdAt DateTime? @default(now())
+  updatedAt DateTime? @updatedAt
+
+  messages     Message[]
+  reactions    Reaction[]
+  roomMembers  RoomMember[]
+  createdRooms Room[]       @relation("RoomCreator")
+}
+
+model Room {
+  id        String   @id @default(uuid())
+  name      String
+  isGeneral Boolean  @default(false)
+  isDirect  Boolean  @default(false)
+  createdAt DateTime @default(now())
+  updatedAt DateTime? @updatedAt
+
+  createdBy   User         @relation("RoomCreator", fields: [createdById], references: [id])
+  createdById String
+  members     RoomMember[]
+  messages    Message[]
+}
+
+model RoomMember {
+  id               String   @id @default(uuid())
+  hasHistoryAccess Boolean  @default(true)
+  joinedAt         DateTime @default(now())
+
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId String
+  room   Room   @relation(fields: [roomId], references: [id], onDelete: Cascade)
+  roomId String
+
+  @@unique([userId, roomId])
+}
+
+model Message {
+  id        String   @id @default(uuid())
+  content   String
+  createdAt DateTime @default(now())
+  updatedAt DateTime? @updatedAt
+
+  author    User       @relation(fields: [authorId], references: [id], onDelete: Cascade)
+  authorId  String
+  room      Room       @relation(fields: [roomId], references: [id], onDelete: Cascade)
+  roomId    String
+  reactions Reaction[]
+}
+
+model Reaction {
+  id        String   @id @default(uuid())
+  emoji     String
+  createdAt DateTime @default(now())
+
+  message   Message @relation(fields: [messageId], references: [id], onDelete: Cascade)
+  messageId String
+  user      User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId    String
+
+  @@unique([messageId, userId, emoji])
 }
