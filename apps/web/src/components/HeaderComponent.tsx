@@ -14,30 +14,8 @@ import {
 } from "./ui/drawer";
 
 const NavComponent = () => {
-  const { data } = useSession();
   return (
     <>
-        {/* <> */}
-          {/* <LinkComponent label="Recherche" href="/exercises" /> */}
-
-          {/* <LinkComponent label="Mes entrainements" href="/workouts" />
-          <div className="flex gap-2">
-            <div className="relative">
-              <p
-                className={`absolute -top-1 -right-1 bg-red-600 text-white text-xs rounded-full w-4 h-4 text-center ${ids.length > 0 ? "opacity-100" : "opacity-0"} transition-all`}
-              >
-                {ids.length}
-              </p>
-              <LinkComponent
-                label={<BicepsFlexed />}
-                href="/workouts/draft"
-                size="icon"
-              />
-            </div>
-            <LinkComponent label={<User />} href="/profil" size="icon" />
-          </div>
-        </> */}
-
       <Button onClick={() => signOut({ callbackUrl: "/" })}>Déconnexion</Button>
     </>
   );
@@ -91,15 +69,3 @@ export const HeaderComponent = () => {
     </header>
   );
 };
-
-const LinkComponent = ({
-  label,
-  href,
-  ...props
-}: { label: ReactNode; href: string } & VariantProps<
-  typeof buttonVariants
->) => (
-  <Button variant="link" {...props} asChild>
-    <Link href={href}>{label}</Link>
-  </Button>
-);

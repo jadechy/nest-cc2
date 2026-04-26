@@ -31,7 +31,13 @@ export default function Home() {
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <Credential
             label="Utilisateur"
-            email="user@example.com"
+            email="alice@example.com"
+            password="Password123!"
+          />
+
+          <Credential
+            label="Utilisateur"
+            email="bob@example.com"
             password="Password123!"
           />
         </div>
@@ -39,7 +45,7 @@ export default function Home() {
           <a href="http://localhost:8025" target="_blank" className="underline">
             localhost:8025
           </a>
-          pour récupérer le code OTP.
+           pour récupérer le code OTP.
         </p>
       </div>
     </div>
