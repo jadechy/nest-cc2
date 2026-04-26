@@ -78,8 +78,15 @@ pnpm --filter api prisma:generate
 # Seed de la base de données
 pnpm db:seed
 
+# Démarrer l'API Nest
+pnpm dev:api
+
 # Démarrer l'API et le frontend en parallèle
 pnpm dev
+
+# Visualiser la Base de données
+cd apps/api
+npx prisma studio
 ```
 
 L'API est disponible sur `http://localhost:3001`
